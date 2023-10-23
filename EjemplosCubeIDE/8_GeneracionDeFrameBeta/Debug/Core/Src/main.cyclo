@@ -1,0 +1,8 @@
+../Core/Librerias/printf_out.h:10:5:__io_putchar	1
+../Core/Src/main.c:32:5:main	1
+../Core/Src/main.c:124:6:HAL_UART_RxCpltCallback	1
+../Core/Src/main.c:133:6:generateFrameTx	12
+../Core/Src/main.c:184:6:sweepMux	2
+../Core/Src/main.c:201:9:codeCRC8	4
+../Core/Src/main.c:225:6:SystemClock_Config	4
+../Core/Src/main.c:262:6:Error_Handler	1

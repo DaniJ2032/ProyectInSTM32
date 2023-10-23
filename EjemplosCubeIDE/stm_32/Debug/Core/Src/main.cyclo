@@ -1,0 +1,17 @@
+main.c:88:5:main	1
+main.c:160:6:SystemClock_Config	4
+main.c:206:13:MX_ADC1_Init	4
+main.c:272:13:MX_DAC2_Init	3
+main.c:312:13:MX_TIM6_Init	3
+main.c:350:13:MX_USART2_UART_Init	2
+main.c:384:13:MX_DMA_Init	1
+main.c:402:13:MX_GPIO_Init	1
+main.c:484:6:HAL_ADC_ConvCpltCallback	1
+main.c:496:9:digital_read	6
+main.c:510:6:digital_write	1
+main.c:526:6:HAL_TIM_PeriodElapsedCallback	2
+main.c:561:6:intArrayToString	3
+main.c:573:6:stream_send	3
+main.c:613:10:calcular_crc8	4
+main.c:646:6:HAL_UART_RxCpltCallback	2
+main.c:670:6:Error_Handler	1

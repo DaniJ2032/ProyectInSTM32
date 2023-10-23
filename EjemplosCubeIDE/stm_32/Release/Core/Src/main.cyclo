@@ -1,0 +1,11 @@
+main.c:160:6:SystemClock_Config	4
+main.c:88:5:main	9
+main.c:484:6:HAL_ADC_ConvCpltCallback	1
+main.c:496:9:digital_read	1
+main.c:510:6:digital_write	1
+main.c:561:6:intArrayToString	3
+main.c:613:10:calcular_crc8	4
+main.c:573:6:stream_send	1
+main.c:526:6:HAL_TIM_PeriodElapsedCallback	2
+main.c:646:6:HAL_UART_RxCpltCallback	2
+main.c:670:6:Error_Handler	1

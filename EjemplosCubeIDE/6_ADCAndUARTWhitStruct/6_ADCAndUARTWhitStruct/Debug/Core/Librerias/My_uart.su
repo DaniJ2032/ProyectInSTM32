@@ -1,0 +1,4 @@
+../Core/Librerias/My_uart.c:4:6:uartx_write	16	static
+../Core/Librerias/My_uart.c:9:6:uartx_write_text	16	static
+../Core/Librerias/My_uart.c:14:6:uartx_write_IT	16	static
+../Core/Librerias/My_uart.c:18:6:uartx_write_text_IT	16	static

@@ -1,0 +1,53 @@
+{
+  "version": "0.2.0",
+  "projectName": "4_PuertoSerie2",
+  "configurations": [
+    {
+      "name": "STlink launch",
+      "cwd": "${workspaceRoot}",
+      "executable": "${workspaceRoot}/build/4_PuertoSerie2.elf",
+      "request": "launch",
+      "type": "cortex-debug",
+      "servertype": "stutil",
+      "device": "STM32F103C876",
+      "interface": "swd",
+      "runToMain": true,
+      "preLaunchTask": "build all",
+      "svdFile": "X:\\ELECTRONICA\\ST\\STM32CubeIDE_1.13.1\\STM32CubeIDE\\plugins\\com.st.stm32cube.ide.mcu.productdb.debug_2.1.0.202306151215\\resources\\cmsis\\STMicroelectronics_CMSIS_SVD",
+      "swoConfig": {}
+    },
+    {
+      "name": "STlink attach",
+      "cwd": "${workspaceRoot}",
+      "executable": "${workspaceRoot}/build/4_PuertoSerie2.elf",
+      "request": "attach",
+      "type": "cortex-debug",
+      "servertype": "stutil",
+      "device": "STM32F103C876",
+      "interface": "swd",
+      "runToMain": true,
+      "preLaunchTask": "build all",
+      "svdFile": "X:\\ELECTRONICA\\ST\\STM32CubeIDE_1.13.1\\STM32CubeIDE\\plugins\\com.st.stm32cube.ide.mcu.productdb.debug_2.1.0.202306151215\\resources\\cmsis\\STMicroelectronics_CMSIS_SVD",
+      "swoConfig": {}
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/dajju/OneDrive/Escritorio/ProyectInSTM32/Ejemplos/4_PuertoSerie2/Core/Src",
+      "program": "c:/Users/dajju/OneDrive/Escritorio/ProyectInSTM32/Ejemplos/4_PuertoSerie2/Core/Src/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

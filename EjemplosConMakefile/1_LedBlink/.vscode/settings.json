@@ -1,0 +1,5 @@
+// {
+//     "cortex-debug.gdbPath": "C:\\Program Files (x86)\\GNU Arm Embedded Toolchain\\10 2021.10\\binarm-none-eabi-gdb",
+//     // "cortex-debug.JLinkGDBServerPath": "/usr/local/bin/JLinkGDBServer",
+//     "cortex-debug.stutilPath": "C:\\Program Files (x86)\\stlink-1.7.0\\bin\\st-info",
+// }
