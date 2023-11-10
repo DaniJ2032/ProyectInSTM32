@@ -46,10 +46,6 @@ int main(void) {
 
   HAL_UART_Receive_IT(&huart1, (uint8_t*)&rxDataFramechar,sizeof(rxDataFramechar));
 
-
-//  unsigned char i=0, dato = 0;
-
-
   while (1){
 
 
@@ -125,8 +121,26 @@ void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
 
 	static charRxFrame_t rxDataFramechar;
 
-	if (huart->Instance == USART1){}
+	if (huart->Instance == USART1){
 
+
+	}
+
+//	// Verifico la trama recibida
+//	uint8_t crc_check = codeCRC8((uint8_t *)&rxDataFramechar, sizeof(rxDataFramechar)-2);
+//
+//	if (crc_check != 0){
+//
+//		rxDataFramechar.tramaEnvio.outA1 = 0x1;
+//		rxDataFramechar.tramaEnvio.outA2 = 0x2;
+//		rxDataFramechar.tramaEnvio.outsDig = 0x3;
+//		//ACA DEBERIA EJECUTAR LA ASIGNACION DE LOS PWM y salidas Dig.
+//		// Ó irme a otra funcion.....
+
+//	}
+
+	// Recibimos por puerto serie el frame enviado por QT
+	//ANDA MAL ESTO!!!!!!!!!! REVISAR SOLO RECIBO UNA VEZ
 	HAL_UART_Receive_IT(&huart1, (uint8_t*)&rxDataFramechar,sizeof(rxDataFramechar));
 }
 
@@ -136,6 +150,9 @@ void generateFrameTx(charRxFrame_t rxDataFramechar){
 	static uint16_t			lecturaAdc;
 	static unsigned char	count = 0;
 	static unsigned char	contador = 1;
+	//REVISAR
+	uint8_t crc_check = codeCRC8((uint8_t *)&rxDataFramechar, sizeof(rxDataFramechar)-1);
+	rxDataFramechar.tramaEnvio.outA1 = crc_check;
 
 			while(contador<=8){
 
@@ -156,7 +173,7 @@ void generateFrameTx(charRxFrame_t rxDataFramechar){
 						dataFrame.count = count;
 						dataFrame.outA1 = rxDataFramechar.tramaEnvio.outA1;		// Tiene que venir desde QT
 						dataFrame.outA2 = rxDataFramechar.tramaEnvio.outA2;		// Tiene que venir desde QT
-						dataFrame.insDig =  0xDE;
+						dataFrame.insDig =  0xDE;								//Digital_read() hace funcion
 						dataFrame.outsDig = rxDataFramechar.tramaEnvio.outsDig;	// Tiene que venir desde QT
 
 						dataFrame.crc8 = codeCRC8((uint8_t *)&dataFrame, sizeof(dataFrame)-2);
@@ -173,10 +190,8 @@ void generateFrameTx(charRxFrame_t rxDataFramechar){
 						break;
 				}
 				if (sweepMux(&htim2) == true) contador++;
-//				if (contador == 9 ) contador =1;
 			}
 
-//			contador = sweepMux(&htim2);
 			if (contador == 9 ) contador =1;
 
 }
@@ -186,7 +201,6 @@ bool sweepMux(TIM_HandleTypeDef *htim){	//Contador a una frec de 12kHz
 	static unsigned char contador = 1;
 
 	if (htim->Instance == TIM2){
-
 
         HAL_GPIO_WritePin(GPIOB, PIN1, (contador & 0x01) ? GPIO_PIN_SET : GPIO_PIN_RESET);
         HAL_GPIO_WritePin(GPIOB, PIN2, (contador & 0x02) ? GPIO_PIN_SET : GPIO_PIN_RESET);
@@ -198,13 +212,13 @@ bool sweepMux(TIM_HandleTypeDef *htim){	//Contador a una frec de 12kHz
 }
 
 
-uint8_t codeCRC8(uint8_t *dataFrame, uint8_t longitud) {
+uint8_t codeCRC8(uint8_t *Frame, uint8_t longitud) {
 
     uint8_t polinomio_generador = 0x07; // Polinomio generador CRC-8 (0x07)
     uint8_t reg_crc = 0; // Inicializa el registro CRC en cero
 
     for (uint8_t i = 0; i < longitud; i++) { // Se recorre la estructura
-        reg_crc ^= dataFrame[i]; // Realiza un XOR con el byte actual
+        reg_crc ^= Frame[i]; // Realiza un XOR con el byte actual
 
         for (uint8_t j = 0; j < 8; j++) {
 
