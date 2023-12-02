@@ -1,6 +1,3 @@
-
-
-
 #include "adc.h"
 
 extern ADC_HandleTypeDef hadc1;

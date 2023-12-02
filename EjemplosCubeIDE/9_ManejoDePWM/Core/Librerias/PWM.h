@@ -30,7 +30,7 @@
 
 
 void PWM_init(TIM_HandleTypeDef *serv,uint16_t canal);
-void pwm_valor(uint32_t *canal, float valor);
+void pwm_valor(uint32_t *canal, uint8_t valor);
 
 
 

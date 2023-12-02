@@ -58,6 +58,12 @@ void Error_Handler(void);
 
 /* Private defines -----------------------------------------------------------*/
 #define adc1 hadc1
+#define PWMHAN htim3
+#define PWM2_CH TIM_CHANNEL_2
+#define PWM1_CH TIM_CHANNEL_1
+#define PWM2 TIM3->CCR2
+#define PWM1 TIM3->CCR1
+#define PWMTIM3 TIM3
 
 /* USER CODE BEGIN Private defines */
 

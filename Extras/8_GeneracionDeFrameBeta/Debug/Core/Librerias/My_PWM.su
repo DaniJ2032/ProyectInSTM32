@@ -1,0 +1,2 @@
+../Core/Librerias/My_PWM.c:11:7:PWM_init	16	static
+../Core/Librerias/My_PWM.c:18:6:pwm_valor	16	static

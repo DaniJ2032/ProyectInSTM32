@@ -1,0 +1,2 @@
+../Core/Librerias/My_PWM.c:3:7:PWM_init	1
+../Core/Librerias/My_PWM.c:10:6:pwm_valor	1
